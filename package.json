@@ -1,0 +1,15 @@
+{
+  "name": "portfolio",
+  "version": "3.0.0",
+  "description": "personal portfolio, written in vanilla",
+  "main": "build/index.js",
+  "repository": "git@github.com:aaronparisi/portfolio_v3.git",
+  "author": "aaronparisi",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "serve": "node server.js",
+    "watch": "npx nodemon -e js,json,css,html,svg server.js",
+    "inspect": "NODE_INSPECT_RESUME_ON_START=1 node inspect server.js"
+  }
+}
