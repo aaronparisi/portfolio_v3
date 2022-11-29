@@ -1,3 +1,64 @@
-html, body {
-  color: red;
+html.theme-vanilla {
+  --color-dark-brown: #28190c;
+  --color-brown: #b99e7e;
+  --color-dull-brown: #7c6f5d;
+  --color-cream: #E8DBCC;
+  --color-dull-cream: #d2bba4;
+  --text-font-family: 'Wire One', sans-serif;
+  --text-font-size-large: 72px;
+  --text-font-size-med-large: 64px;
+  --text-font-size-med: 48px;
+  --text-font-size-small-med: 30px;
+  --text-font-size-small: 24px;
+}
+html.theme-chocolate {
+  --color-dark-brown: #28190c;
+  --color-brown: #b99e7e;
+  --color-dull-brown: #7c6f5d;
+  --color-cream: #E8DBCC;
+  --color-dull-cream: #d2bba4;
+  --text-font-family: 'Wire One', sans-serif;
+  --text-font-size-large: 72px;
+  --text-font-size-med-large: 64px;
+  --text-font-size-med: 48px;
+  --text-font-size-small-med: 30px;
+  --text-font-size-small: 24px;
+}
+html,
+body {
+  background-color: var(--color-cream);
+  font-family: var(--text-font-family);
+  position: relative;
+}
+h1,
+h2 {
+  text-align: center;
+}
+h1 {
+  color: var(--color-dark-brown);
+  font-size: var(--text-font-size-large);
+}
+h2 {
+  color: var(--color-dull-brown);
+  font-size: var(--text-font-size-med);
+}
+#theme-toggle-button {
+  border: 1px solid lime;
+  border-radius: 5px;
+
+  padding: 3px 5px;
+
+  position: absolute;
+  top: 50px;
+  right: 80px;
+
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s ease-in-out;
+}
+.theme-icon {
+  height: 30px;
+  width: 30px;
 }

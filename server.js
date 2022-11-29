@@ -11,6 +11,7 @@ const PORT = process.env.PORT || '3002'
 
 // RESPONSE PARAMS
 const CONTENT_TYPE = {
+  png: 'image/png',
   svg: 'image/svg+xml',
   ico: 'image/x-icon',
   css: 'text/css; charset=utf-8',
@@ -28,6 +29,7 @@ const cacheAssets = dir => {
 
   for (let i = 0; i < dirents.length; i++) {
     const fullpath = `${dir}/${dirents[i].name}`
+    console.log(`caching ${fullpath}`)
     if (dirents[i].isDirectory()) cacheAssets(fullpath)
     else staticCache[fullpath.replace(/^\./, '')] = fs.readFileSync(fullpath)
   }
@@ -59,11 +61,13 @@ const handleRequest = (req, res) => {
 
   const ext = req.url.split('.')[1]
   const contentType = CONTENT_TYPE[ext] || CONTENT_TYPE.html
-  const cacheKey = (req.url === '/') ? '/static/index.html' : req.url.replace(`-${BUILD_ID}`, '')
+  const cacheKey = req
+    .url
+    .replace(/\/$/, '/static/index.html')
+    .replace(`-${BUILD_ID}`, '')
   const data = staticCache[cacheKey]
 
   if (!data) {
-    console.log(`url: ${req.url}`)
     respond({ res, data: "ERROR", contentType: CONTENT_TYPE.html, statusCode: 404 })
   } else {
     respond({ res, data, contentType, statusCode: 200 })
