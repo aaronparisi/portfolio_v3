@@ -6,6 +6,7 @@ html {
   --color-dull-cream: #d2bba4;
 
   --color-filter-dark-brown: invert(8%) sepia(22%) saturate(1539%) hue-rotate(346deg) brightness(95%) contrast(94%);
+  --color-filter-cream: invert(93%) sepia(10%) saturate(337%) hue-rotate(348deg) brightness(95%) contrast(92%);
   --color-filter-dull-cream: invert(92%) sepia(7%) saturate(1380%) hue-rotate(328deg) brightness(87%) contrast(89%);
   --color-filter-dull-brown: invert(45%) sepia(8%) saturate(938%) hue-rotate(355deg) brightness(94%) contrast(87%);
 
@@ -20,12 +21,17 @@ html {
 
   --neuo-cream-selected-background: linear-gradient(45deg, #d1c5b8, #f8eada);
   --neuo-cream-selected-box-shadow: 5px -5px 10px #d3c7ba, -5px 5px 10px #fdefde;
-
   --neuo-cream-deselected-background: linear-gradient(45deg, #f8eada, #d1c5b8);
   --neuo-cream-deselected-box-shadow: 5px -5px 10px #d3c7ba, -5px 5px 10px #fdefde;
-
   --neuo-cream-deselected-accent-background: linear-gradient(45deg, #f8eada, #d1c5b8);
   --neuo-cream-deselected-accent-box-shadow: 5px -5px 10px #c5baad, -5px 5px 10px #fffceb;
+
+  --neuo-dark-brown-selected-background: linear-gradient(45deg, #24170b, #2b1b0d);
+  --neuo-dark-brown-selected-box-shadow:  5px -5px 10px #23160b, -5px 5px 10px #2d1c0d;
+  --neuo-dark-brown-deselected-background: linear-gradient(45deg, #2b1b0d, #24170b);
+  --neuo-dark-brown-deselected-box-shadow: 5px -5px 10px #23160b, -5px 5px 10px #2d1c0d;
+  --neuo-dark-brown-deselected-accent-background: linear-gradient(45deg, #2b1b0d, #24170b);
+  --neuo-dark-brown-deselected-accent-box-shadow: 5px -5px 10px #22150a, -5px 5px 10px #2e1d0e;
 }
 html.theme-vanilla {
   --color-background: var(--color-cream);
@@ -48,6 +54,18 @@ html.theme-chocolate {
   --color-background: var(--color-dark-brown);
   --color-foreground-primary: var(--color-cream);
   --color-foreground-secondary: var(--color-dull-cream);
+
+  --color-filter-foreground-primary: var(--color-filter-cream);
+  --color-filter-foreground-secondary: var(--color-filter-dull-cream);
+
+  --neuo-selected-background: var(--neuo-dark-brown-selected-background);
+  --neuo-selected-box-shadow: var(--neuo-dark-brown-selected-box-shadow);
+
+  --neuo-deselected-background: var(--neuo-dark-brown-deselected-background);
+  --neuo-deselected-box-shadow: var(--neuo-dark-brown-deselected-box-shadow);
+
+  --neuo-deselected-accent-background: var(--neuo-dark-brown-deselected-accent-background);
+  --neuo-deselected-accent-box-shadow: var(--neuo-dark-brown-deselected-accent-box-shadow);
 }
 html,
 body {
