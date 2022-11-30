@@ -1,32 +1,57 @@
-html.theme-vanilla {
+html {
   --color-dark-brown: #28190c;
   --color-brown: #b99e7e;
   --color-dull-brown: #7c6f5d;
   --color-cream: #E8DBCC;
   --color-dull-cream: #d2bba4;
+
+  --color-filter-dark-brown: invert(8%) sepia(22%) saturate(1539%) hue-rotate(346deg) brightness(95%) contrast(94%);
+  --color-filter-dull-cream: invert(92%) sepia(7%) saturate(1380%) hue-rotate(328deg) brightness(87%) contrast(89%);
+  --color-filter-dull-brown: invert(45%) sepia(8%) saturate(938%) hue-rotate(355deg) brightness(94%) contrast(87%);
+
   --text-font-family: 'Wire One', sans-serif;
   --text-font-size-large: 72px;
   --text-font-size-med-large: 64px;
   --text-font-size-med: 48px;
   --text-font-size-small-med: 30px;
   --text-font-size-small: 24px;
+
+  --neuo-border-radius: 10px;
+
+  --neuo-cream-selected-background: linear-gradient(45deg, #d1c5b8, #f8eada);
+  --neuo-cream-selected-box-shadow: 5px -5px 10px #d3c7ba, -5px 5px 10px #fdefde;
+
+  --neuo-cream-deselected-background: linear-gradient(45deg, #f8eada, #d1c5b8);
+  --neuo-cream-deselected-box-shadow: 5px -5px 10px #d3c7ba, -5px 5px 10px #fdefde;
+
+  --neuo-cream-deselected-accent-background: linear-gradient(45deg, #f8eada, #d1c5b8);
+  --neuo-cream-deselected-accent-box-shadow: 5px -5px 10px #c5baad, -5px 5px 10px #fffceb;
+}
+html.theme-vanilla {
+  --color-background: var(--color-cream);
+  --color-foreground-primary: var(--color-dark-brown);
+  --color-foreground-secondary: var(--color-dull-brown);
+
+  --color-filter-foreground-primary: var(--color-filter-dark-brown);
+  --color-filter-foreground-secondary: var(--color-filter-dull-brown);
+
+  --neuo-selected-background: var(--neuo-cream-selected-background);
+  --neuo-selected-box-shadow: var(--neuo-cream-selected-box-shadow);
+
+  --neuo-deselected-background: var(--neuo-cream-deselected-background);
+  --neuo-deselected-box-shadow: var(--neuo-cream-deselected-box-shadow);
+
+  --neuo-deselected-accent-background: var(--neuo-cream-deselected-accent-background);
+  --neuo-deselected-accent-box-shadow: var(--neuo-cream-deselected-accent-box-shadow);
 }
 html.theme-chocolate {
-  --color-dark-brown: #28190c;
-  --color-brown: #b99e7e;
-  --color-dull-brown: #7c6f5d;
-  --color-cream: #E8DBCC;
-  --color-dull-cream: #d2bba4;
-  --text-font-family: 'Wire One', sans-serif;
-  --text-font-size-large: 72px;
-  --text-font-size-med-large: 64px;
-  --text-font-size-med: 48px;
-  --text-font-size-small-med: 30px;
-  --text-font-size-small: 24px;
+  --color-background: var(--color-dark-brown);
+  --color-foreground-primary: var(--color-cream);
+  --color-foreground-secondary: var(--color-dull-cream);
 }
 html,
 body {
-  background-color: var(--color-cream);
+  background-color: var(--color-background);
   font-family: var(--text-font-family);
   position: relative;
 }
@@ -35,30 +60,65 @@ h2 {
   text-align: center;
 }
 h1 {
-  color: var(--color-dark-brown);
+  color: var(--color-foreground-primary);
   font-size: var(--text-font-size-large);
 }
 h2 {
-  color: var(--color-dull-brown);
+  color: var(--color-foreground-secondary);
   font-size: var(--text-font-size-med);
 }
-#theme-toggle-button {
-  border: 1px solid lime;
-  border-radius: 5px;
-
-  padding: 3px 5px;
-
+#theme-link-wrapper {
   position: absolute;
   top: 50px;
   right: 80px;
-
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  transition: transform 1s ease-in-out;
 }
-.theme-icon {
+.theme-link {
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--neuo-border-radius);
+}
+.theme-link:first-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.theme-link:nth-child(2) {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.theme-link img {
   height: 30px;
   width: 30px;
+}
+.theme-link-selected {
+  background: var(--neuo-selected-background);
+  box-shadow:  var(--neuo-selected-box-shadow);
+}
+.theme-link-selected img {
+  filter: var(--color-filter-foreground-primary);
+}
+.theme-link-deselected {
+  background: var(--neuo-deselected-background);
+  box-shadow:  var(--neuo-deselected-box-shadow);
+}
+.theme-link-deselected:hover {
+  cursor: pointer;
+  background: var(--neuo-deselected-accent-background);
+  box-shadow:  var(--neuo-deselected-accent-box-shadow);
+}
+.theme-link-deselected img {
+  filter: var(--color-filter-foreground-secondary);
+}
+.theme-link-deselected:hover img {
+  filter: var(--color-filter-foreground-primary);
 }
